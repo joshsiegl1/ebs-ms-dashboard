@@ -7,7 +7,9 @@
         "jsx":"react-jsx",
         "noImplicitAny": false,
         "removeComments": true,
+        "sourceMap": true,
         "outDir": "./build", 
+        "moduleResolution": "node",
         "typeRoots": ["./node_modules/@types"]
     }, 
     "include": ["./**/*"],
