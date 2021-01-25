@@ -4,6 +4,7 @@
         "esModuleInterop": true,
         "allowJs": true, 
         "target": "ES6", 
+        "jsx":"react-jsx",
         "noImplicitAny": false,
         "removeComments": true,
         "outDir": "./build", 
