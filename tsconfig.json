@@ -1,0 +1,14 @@
+{ 
+    "compilerOptions": {
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "allowJs": true, 
+        "target": "ES6", 
+        "noImplicitAny": false,
+        "removeComments": true,
+        "outDir": "./build", 
+        "typeRoots": ["./node_modules/@types"]
+    }, 
+    "include": ["./**/*"],
+    "exclude": ["node_modules"]
+}
