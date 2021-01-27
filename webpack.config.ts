@@ -1,6 +1,6 @@
 import * as path from 'path'; 
 import * as webpack from 'webpack';
-import * as HtmlWebpackPlugin from 'html-webpack-plugin'; 
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const config: webpack.Configuration = { 
     mode: 'production', 
@@ -12,9 +12,7 @@ const config: webpack.Configuration = {
     resolve: { 
         extensions: ['.tsx', '.ts', '.js']
     }, 
-    plugins: { 
-        new HtmlWebpackPlugin
-    }, 
+    plugins: [ new HtmlWebpackPlugin() ], 
     module: { 
         rules: [ 
             { 
@@ -23,6 +21,12 @@ const config: webpack.Configuration = {
                 exclude: /node_modules/ 
             }
         ]
+    }, 
+    devServer: { 
+        contentBase: path.join(__dirname, 'build'), 
+        compress: true, 
+        port: 8080, 
+        historyApiFallback: true
     }
 }
 

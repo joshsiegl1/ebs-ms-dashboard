@@ -1,4 +1,6 @@
 import React from 'react'; 
 import ReactDOM from 'react-dom'; 
 
-ReactDOM.render(<p>paragraph</p>, document.getElementById('root')); 
+import Header from './header'; 
+
+ReactDOM.render(<Header />, document.getElementById('root')); 
