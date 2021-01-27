@@ -4,8 +4,10 @@
   "description": "dashboard for EBS healthcare's O365 implementation",
   "main": "index.ts",
   "scripts": {
-    "start": "webpack-dev-server --",
+    "start": "webpack serve --open --watch",
     "build": "webpack",
+    "check-format": "prettier --check \"src/**/*{.js,.ts,.tsx}\"",
+    "format": "prettier --write \"src/**/*{.js,.ts,.tsx}\"",
     "test": "jest"
   },
   "author": "Josh Siegl",
@@ -25,7 +27,9 @@
     "@types/webpack-dev-server": "^3.11.1",
     "html-webpack-plugin": "^4.5.1",
     "jest": "^26.6.3",
+    "prettier": "2.2.1",
     "ts-loader": "^8.0.14",
+    "ts-node": "^9.1.1",
     "webpack": "^5.17.0",
     "webpack-cli": "^4.4.0",
     "webpack-dev-server": "^3.11.2"

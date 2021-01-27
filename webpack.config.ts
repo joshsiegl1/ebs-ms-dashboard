@@ -4,15 +4,17 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const config: webpack.Configuration = { 
     mode: 'production', 
-    entry: './index.tsx', 
+    entry: './src/index.tsx', 
     output: { 
         path: path.resolve(__dirname, 'build'), 
-        filename: 'webpack.bundle.js'
+        filename: '[name].bundle.js'
     }, 
     resolve: { 
         extensions: ['.tsx', '.ts', '.js']
     }, 
-    plugins: [ new HtmlWebpackPlugin() ], 
+    plugins: [ new HtmlWebpackPlugin({ 
+        template: path.join(__dirname, 'src/index.html')
+    }) ], 
     module: { 
         rules: [ 
             { 
@@ -23,9 +25,8 @@ const config: webpack.Configuration = {
         ]
     }, 
     devServer: { 
-        contentBase: path.join(__dirname, 'build'), 
         compress: true, 
-        port: 8080, 
+        port: 5000, 
         historyApiFallback: true
     }
 }
