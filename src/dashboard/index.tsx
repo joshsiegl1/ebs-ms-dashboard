@@ -8,6 +8,9 @@ const Dashboard = (): JSX.Element => {
     return (
         <Container>
             <SideBar />
+            <div>
+                
+            </div>
         </Container>
     );
 };
