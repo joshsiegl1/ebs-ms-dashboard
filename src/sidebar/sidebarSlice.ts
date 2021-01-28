@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { RootState } from '../store/rootReducer'; 
 
 type SidebarState = {
     selected: string;
@@ -12,13 +13,17 @@ const selectedSlice = createSlice({
     name: "selected",
     initialState,
     reducers: {
-        selectDashboard: state => {
+        dashboard: state => {
             state.selected = "dashboard";
         },
-        selectEmail: state => {
+        email: state => {
             state.selected = "email";
         },
     },
 });
 
-export const { selectDashboard, selectEmail } = selectedSlice.actions;
+export const { dashboard, email } = selectedSlice.actions;
+
+export const selectSidebar = (state: RootState) => state.sidebar; 
+
+export default selectedSlice.reducer; 

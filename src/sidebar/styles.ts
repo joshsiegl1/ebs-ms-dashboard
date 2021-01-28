@@ -1,4 +1,8 @@
-import styled from "styled-components";
+import styled, { StyledFunction } from "styled-components";
+
+interface IconProps { 
+    isSelected: boolean 
+}
 
 export const Container = styled.div`
     position: absolute;
@@ -16,10 +20,13 @@ export const Container = styled.div`
     align-items: center;
 `;
 
-export const Icon = styled.div`
+
+export const Icon = styled.div<IconProps>`
     padding: 20px;
     cursor: pointer;
+    ${props => props.isSelected ? `background-color: dodgerblue` : `background-color: transparent`}
     &:hover {
         background-color: dodgerblue;
     }
+ 
 `;
