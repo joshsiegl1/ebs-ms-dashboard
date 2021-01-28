@@ -16,13 +16,13 @@ const selectedSlice = createSlice({
         dashboard: state => {
             state.selected = "dashboard";
         },
-        email: state => {
-            state.selected = "email";
+        emails: state => {
+            state.selected = "emails";
         },
     },
 });
 
-export const { dashboard, email } = selectedSlice.actions;
+export const { dashboard, emails } = selectedSlice.actions;
 
 export const selectSidebar = (state: RootState) => state.sidebar; 
 

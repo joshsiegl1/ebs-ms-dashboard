@@ -8,11 +8,10 @@ export const Container = styled.div`
     position: absolute;
     top: 0px;
     left: 0px;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 2px;
     background-color: #272727;
     height: 100%;
-    width: 40px;
+    width: 60px;
     box-shadow: 1px 1px 5px black;
     border-right: 1px solid black;
     display: flex;
@@ -22,11 +21,17 @@ export const Container = styled.div`
 
 
 export const Icon = styled.div<IconProps>`
-    padding: 20px;
+    width: 100%; 
+    height: 50px; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
     cursor: pointer;
-    ${props => props.isSelected ? `background-color: dodgerblue` : `background-color: transparent`}
+    background-color: ${props => props.isSelected ? `dodgerblue` : `transparent`}; 
+    border: ${props => props.isSelected ? `2px solid white` : `none`}; 
     &:hover {
         background-color: dodgerblue;
+        border: 2px solid white; 
     }
  
 `;

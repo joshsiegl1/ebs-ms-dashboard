@@ -5,6 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const config: webpack.Configuration = { 
     mode: 'production', 
     entry: './src/index.tsx', 
+    devtool: 'source-map', 
     output: { 
         path: path.resolve(__dirname, 'build'), 
         filename: '[name].bundle.js'

@@ -4,7 +4,7 @@ import { useHistory, withRouter } from "react-router-dom";
 
 import { 
     dashboard, 
-    email, 
+    emails, 
     selectSidebar
 } from './sidebarSlice'; 
 
@@ -20,10 +20,12 @@ const SideBar = (): JSX.Element => {
     const { selected } = useSelector(selectSidebar); 
 
     const onClick = (route: string): void => { 
-        dispatch({ 
-            type: [route]
-        }); 
+        if (route === 'dashboard') dispatch(dashboard()); 
+        if (route === 'emails') dispatch(emails()); 
+        
         history.push(route); 
+
+        console.log(selected); 
     }
 
     return (
