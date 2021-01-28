@@ -1,11 +1,34 @@
-import React from 'react'; 
+import React from "react";
+import { useHistory, withRouter } from "react-router-dom";
 
-import { Container } from './styles'; 
+import { Container, Icon } from "./styles";
 
-const SideBar = (): JSX.Element => { 
-    return (<Container>
-        
-    </Container>); 
-}
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTachometerAlt, faMailBulk } from "@fortawesome/free-solid-svg-icons";
 
-export default SideBar; 
+const SideBar = (): JSX.Element => {
+    const history = useHistory();
+
+    const onClick = (route: string): void => history.push(route);
+
+    return (
+        <Container>
+            <Icon onClick={() => onClick("dashboard")}>
+                <FontAwesomeIcon
+                    icon={faTachometerAlt}
+                    size="lg"
+                    color="lightgray"
+                />
+            </Icon>
+            <Icon onClick={() => onClick("emails")}>
+                <FontAwesomeIcon
+                    icon={faMailBulk}
+                    size="lg"
+                    color="lightgray"
+                />
+            </Icon>
+        </Container>
+    );
+};
+
+export default withRouter(SideBar);

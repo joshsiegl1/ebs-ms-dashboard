@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 
 import Dashboard from "../dashboard";
+import Emails from "../emails";
 
 const PrivateRoute = ({ Component, ...args }): JSX.Element => {
     return (
@@ -25,6 +26,7 @@ const Routes = (): JSX.Element => {
             <Switch>
                 <Route path="/" component={Dashboard} />
                 <PrivateRoute path="/dashboard" exact Component={Dashboard} />
+                <PrivateRoute path="/emails" exact Component={Emails} />
             </Switch>
         </Router>
     );
