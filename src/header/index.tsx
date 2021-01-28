@@ -1,11 +1,11 @@
 import React from "react";
 
-import { Container } from "./styles";
+import { Container, Logo } from "./styles";
 
 const Header = (): JSX.Element => {
     return (
         <Container>
-            <p>Header</p>
+            <Logo src="https://ebshealthcare.com/wp-content/uploads/revslider/slider-2/EBSHealthcareLogo.jpg" width="81" height="43"/>
         </Container>
     );
 };
