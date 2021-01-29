@@ -20,6 +20,7 @@ export const Container = styled.div`
 
 
 export const Icon = styled.div<IconProps>`
+    transition: all 0.1s ease; 
     width: 100%; 
     height: 50px; 
     display: flex; 

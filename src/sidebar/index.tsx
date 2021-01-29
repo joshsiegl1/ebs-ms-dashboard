@@ -24,8 +24,6 @@ const SideBar = (): JSX.Element => {
         if (route === 'emails') dispatch(emails()); 
         
         history.push(route); 
-
-        console.log(selected); 
     }
 
     return (
