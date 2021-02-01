@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { RootState } from '../store/rootReducer'; 
+import { RootState } from "../store/rootReducer";
 
 type SidebarState = {
     selected: string;
@@ -24,6 +24,6 @@ const selectedSlice = createSlice({
 
 export const { dashboard, emails } = selectedSlice.actions;
 
-export const selectSidebar = (state: RootState) => state.sidebar; 
+export const selectSidebar = (state: RootState) => state.sidebar;
 
-export default selectedSlice.reducer; 
+export default selectedSlice.reducer;

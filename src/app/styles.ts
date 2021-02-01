@@ -23,6 +23,11 @@ export const Global = createGlobalStyle`
         font-weight: 600;  
     }
 
+    input, select { 
+        border: 1px solid rgba(0,0,0,.6); 
+        box-sizing: border-box; 
+    }
+
     button { 
         transition: all 0.5s ease; 
         background-color: dodgerblue; 

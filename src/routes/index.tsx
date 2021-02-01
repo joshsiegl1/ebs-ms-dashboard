@@ -25,7 +25,7 @@ const Routes = (): JSX.Element => {
         <Router>
             <Switch>
                 <Route path="/" exact>
-                    <Redirect to="/dashboard" /> 
+                    <Redirect to="/dashboard" />
                 </Route>
                 <Route path="/dashboard" exact component={Dashboard} />
                 <Route path="/emails" exact component={Emails} />

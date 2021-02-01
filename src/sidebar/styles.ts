@@ -1,7 +1,7 @@
 import styled, { StyledFunction } from "styled-components";
 
-interface IconProps { 
-    isSelected: boolean 
+interface IconProps {
+    isSelected: boolean;
 }
 
 export const Container = styled.div`
@@ -18,18 +18,17 @@ export const Container = styled.div`
     align-items: center;
 `;
 
-
 export const Icon = styled.div<IconProps>`
-    transition: all 0.1s ease; 
-    width: 100%; 
-    height: 50px; 
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
+    transition: all 0.1s ease;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
-    background-color: ${props => props.isSelected ? `dodgerblue` : `transparent`}; 
+    background-color: ${props =>
+        props.isSelected ? `dodgerblue` : `transparent`};
     &:hover {
         background-color: dodgerblue;
     }
- 
 `;
