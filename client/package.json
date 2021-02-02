@@ -6,8 +6,8 @@
   "scripts": {
     "start": "webpack serve --open --watch",
     "build": "webpack",
-    "check-format": "prettier --check \"src/**/*{.js,.ts,.tsx}\"",
-    "format": "prettier --write \"src/**/*{.js,.ts,.tsx}\"",
+    "check-format": "prettier --check \"src/**/*{.js,.ts,.tsx,.html}\"",
+    "format": "prettier --write \"src/**/*{.js,.ts,.tsx,.html}\"",
     "test": "jest"
   },
   "author": "Josh Siegl",

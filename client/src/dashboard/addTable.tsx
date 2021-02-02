@@ -1,19 +1,32 @@
 import React from "react";
 
-const states = require('./states.json'); 
+const states = require("./states.json");
+const disciplines = require("./disciplines.json").disciplines;
 
 const addTable = (): JSX.Element => {
+    const createStateOptions = (): JSX.Element[] => {
+        let options: JSX.Element[] = [];
 
-    const createStateOptions = (): JSX.Element[] => { 
-        let options = []; 
-        for (let state in states)
-        { 
-            let value = states[state]; 
-            options.push(<option value={value}>{value}</option>); 
+        for (let state in states) {
+            let value: string = states[state];
+
+            options.push(<option value={value}>{value}</option>);
         }
 
-        return options; 
-    }
+        return options;
+    };
+
+    const createDisciplineOptions = (): JSX.Element[] => {
+        let options: JSX.Element[] = [];
+
+        for (let discipline in disciplines) {
+            let value: string = disciplines[discipline];
+
+            options.push(<option value={value}>{value}</option>);
+        }
+
+        return options;
+    };
 
     return (
         <table>
@@ -37,12 +50,10 @@ const addTable = (): JSX.Element => {
                         <input />
                     </td>
                     <td>
-                        <input />
+                        <select>{createDisciplineOptions()}</select>
                     </td>
                     <td>
-                        <select>
-                            {createStateOptions()}
-                        </select>
+                        <select>{createStateOptions()}</select>
                     </td>
                     <td>
                         <input />
