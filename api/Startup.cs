@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.HttpOverrides; 
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 
@@ -28,6 +29,9 @@ namespace api
         {
 
             services.AddControllers();
+
+            services.AddDbContext<ApplicationDbContext>(); 
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "api", Version = "v1" });
@@ -37,6 +41,11 @@ namespace api
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseForwardedHeaders(new ForwardedHeadersOptions
+            { 
+                ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+            }); 
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -46,13 +55,19 @@ namespace api
 
             app.UseHttpsRedirection();
 
+            app.UseFileServer(); 
+
             app.UseRouting();
+
+            app.UseCors(); 
 
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+
+                endpoints.MapFallbackToFile("index.html"); 
             });
         }
     }
