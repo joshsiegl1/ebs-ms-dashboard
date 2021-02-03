@@ -8,7 +8,6 @@ import runningTable from "./runningTable";
 
 const Dashboard = (): JSX.Element => {
     const onProcess = (): void => {};
-    const onAddToList = (): void => {};
     return (
         <Container>
             <SideBar />
@@ -29,10 +28,8 @@ const Dashboard = (): JSX.Element => {
                     </div>
                 </div>
 
-                <div>
-                    {addTable()}
-                    <button onClick={onAddToList}>Add to List</button>
-                </div>
+                {addTable()}
+
             </div>
         </Container>
     );

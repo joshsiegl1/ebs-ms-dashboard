@@ -31,7 +31,7 @@ const config: webpack.Configuration = {
     }, 
     devServer: { 
         compress: true, 
-        port: 5000, 
+        port: 5005, 
         historyApiFallback: true
     }
 }

@@ -20,17 +20,14 @@ namespace api.Controllers
         }
 
         [HttpPost("Employee")]
-        public IActionResult AddToList([FromBody]Employee employee)
+        public IActionResult Employees([FromBody]Employee employee)
         {
+            _context.Employees.Add(employee); 
+            _context.SaveChanges(); 
             return Ok(); 
         }
 
         [HttpGet("Employee")]
-        public List<Employee> GetEmployees()
-        { 
-            List<Employee> employees = new List<Employee>(); 
-
-            return employees; 
-        }
+        public List<Employee> Employees() => _context.Employees.ToList(); 
     }
 }

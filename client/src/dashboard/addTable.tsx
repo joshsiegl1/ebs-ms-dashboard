@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
+
+import { Employee } from '../ts-models'; 
 
 const states = require("./states.json");
 const disciplines = require("./disciplines.json").disciplines;
 
 const addTable = (): JSX.Element => {
+
+    let [ firstName, setFirstName ] = useState<string>(""); 
+    let [ lastName, setLastName ] = useState<string>(""); 
+    let [ email, setEmail ] = useState<string>(""); 
+    let [ account, setAccount ] = useState<string>(""); 
+    let [ discipline, setDiscipline ] = useState<string>(""); 
+    let [ state, setState ] = useState<string>(""); 
+
+    let [loading, setLoading ] = useState<boolean>(false); 
+
     const createStateOptions = (): JSX.Element[] => {
         let options: JSX.Element[] = [];
 
@@ -28,7 +40,38 @@ const addTable = (): JSX.Element => {
         return options;
     };
 
+    const onAddToList = async (): Promise<void> => { 
+         let employee: Employee = { 
+             firstName: "", 
+             lastName: "", 
+             email: "", 
+             account: "", 
+             discipline: "", 
+             state: ""
+         }; 
+
+         employee.firstName = firstName; 
+         employee.lastName = lastName; 
+         employee.email = email; 
+         employee.account = account; 
+         employee.discipline = discipline; 
+         employee.state = state;
+
+         setLoading(true); 
+         await fetch('http://localhost:5000/process/employee', 
+         { 
+             method: 'POST', 
+             headers: { 
+                 'Content-Type': 'application/json', 
+                 'Accept': 'application/json'
+             }, 
+             body: JSON.stringify(employee)
+         })
+         .then(result => result.ok ? setLoading(false) : setLoading(false)); 
+    }
+
     return (
+    <div>
         <table>
             <tbody>
                 <tr>
@@ -41,26 +84,28 @@ const addTable = (): JSX.Element => {
                 </tr>
                 <tr>
                     <td>
-                        <input />
+                        <input onChange={(event: React.ChangeEvent<HTMLInputElement>) => setFirstName(event.target.value) }/>
                     </td>
                     <td>
-                        <input />
+                        <input onChange={(event: React.ChangeEvent<HTMLInputElement>) => setLastName(event.target.value) } />
                     </td>
                     <td>
-                        <input />
+                        <input onChange={(event: React.ChangeEvent<HTMLInputElement>) => setEmail(event.target.value) } />
                     </td>
                     <td>
-                        <select>{createDisciplineOptions()}</select>
+                        <select onChange={(event: React.ChangeEvent<HTMLSelectElement>) => setDiscipline(event.target.value) }>{createDisciplineOptions()}</select>
                     </td>
                     <td>
-                        <select>{createStateOptions()}</select>
+                        <select onChange={(event: React.ChangeEvent<HTMLSelectElement>) => setState(event.target.value) }>{createStateOptions()}</select>
                     </td>
                     <td>
-                        <input />
+                        <input onChange={(event: React.ChangeEvent<HTMLInputElement>) => setAccount(event.target.value) } />
                     </td>
                 </tr>
             </tbody>
         </table>
+        <button onClick={onAddToList}>Add to List</button>
+    </div>
     );
 };
 
