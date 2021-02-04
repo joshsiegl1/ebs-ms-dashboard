@@ -20,12 +20,28 @@ export const Global = createGlobalStyle`
         background-color: #272727; 
         color: white; 
         padding: 10px;
-        font-weight: 600;  
+        font-weight: 600; 
+        // border-left: 1px solid white; 
+        // border-right: 1px solid white; 
+        // border-top: 1px solid rgb(221, 221, 221); 
+        // border-bottom: 1px solid rgb(221, 221, 221);  
     }
 
     input, select { 
         border: 1px solid rgba(0,0,0,.6); 
         box-sizing: border-box; 
+    }
+
+    td { 
+        border-bottom: 1px solid rgb(221, 221, 221); 
+        border-left: 1px solid rgb(221, 221, 221); 
+        border-right: 1px solid rgb(221, 221, 221); 
+        text-align: center; 
+        padding: 8px; 
+        white-space: no-wrap; 
+        overflow: hidden; 
+        text-overflow: eclipse; 
+        background-color: white; 
     }
 
     button { 

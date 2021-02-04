@@ -5,9 +5,9 @@ import { Container } from "./styles";
 import SideBar from "../sidebar";
 import addTable from "./addTable";
 import runningTable from "./runningTable";
+import Console from "./console";
 
 const Dashboard = (): JSX.Element => {
-    const onProcess = (): void => {};
     return (
         <Container>
             <SideBar />
@@ -19,17 +19,17 @@ const Dashboard = (): JSX.Element => {
                     marginLeft: "20px",
                     marginRight: "20px",
                 }}>
-                <div>
-                    {runningTable()}
-                    <div style={{ display: "flex", flexDirection: "row" }}>
-                        <button onClick={onProcess}>Process</button>
-                        <input type="checkbox" />
-                        <label>Include Welcome Email</label>
-                    </div>
+                {runningTable()}
+
+                <div
+                    style={{
+                        display: "flex",
+                        flexDirection: "column",
+                    }}>
+                    {addTable()}
+
+                    {Console()}
                 </div>
-
-                {addTable()}
-
             </div>
         </Container>
     );
